@@ -1,0 +1,325 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="house.rent"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml
+10    <!-- To auto-complete the email text field in the login form with the user's emails -->
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+12-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:6:5-71
+12-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:6:22-68
+13    <uses-permission android:name="android.permission.READ_PROFILE" />
+13-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:7:5-71
+13-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:7:22-68
+14    <uses-permission android:name="android.permission.READ_CONTACTS" />
+14-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:8:5-72
+14-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:8:22-69
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->[com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\2c4223b5ee745bda61222fb5db1149e2\transformed\jetified-firebase-measurement-connector-impl-16.0.1\AndroidManifest.xml:23:5-79
+15-->[com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\2c4223b5ee745bda61222fb5db1149e2\transformed\jetified-firebase-measurement-connector-impl-16.0.1\AndroidManifest.xml:23:22-76
+16    <uses-permission android:name="android.permission.WAKE_LOCK" />
+16-->[com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\2c4223b5ee745bda61222fb5db1149e2\transformed\jetified-firebase-measurement-connector-impl-16.0.1\AndroidManifest.xml:24:5-68
+16-->[com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\2c4223b5ee745bda61222fb5db1149e2\transformed\jetified-firebase-measurement-connector-impl-16.0.1\AndroidManifest.xml:24:22-65
+17    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+17-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:26:5-110
+17-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:26:22-107
+18    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+18-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:26:5-82
+18-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:26:22-79
+19
+20    <permission
+20-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:28:5-30:47
+21        android:name="house.rent.permission.C2D_MESSAGE"
+21-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:29:9-63
+22        android:protectionLevel="signature" />
+22-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:30:9-44
+23
+24    <uses-permission android:name="house.rent.permission.C2D_MESSAGE" />
+24-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:32:5-79
+24-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:32:22-76
+25
+26    <permission
+26-->[androidx.core:core:1.9.0] C:\Users\jayda\.gradle\caches\transforms-3\55dedc70b95a473650eda30d4efd0f99\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+27        android:name="house.rent.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+27-->[androidx.core:core:1.9.0] C:\Users\jayda\.gradle\caches\transforms-3\55dedc70b95a473650eda30d4efd0f99\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+28        android:protectionLevel="signature" />
+28-->[androidx.core:core:1.9.0] C:\Users\jayda\.gradle\caches\transforms-3\55dedc70b95a473650eda30d4efd0f99\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+29
+30    <uses-permission android:name="house.rent.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+30-->[androidx.core:core:1.9.0] C:\Users\jayda\.gradle\caches\transforms-3\55dedc70b95a473650eda30d4efd0f99\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+30-->[androidx.core:core:1.9.0] C:\Users\jayda\.gradle\caches\transforms-3\55dedc70b95a473650eda30d4efd0f99\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+31
+32    <application
+32-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:10:5-55:19
+33        android:allowBackup="true"
+33-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:11:9-35
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.9.0] C:\Users\jayda\.gradle\caches\transforms-3\55dedc70b95a473650eda30d4efd0f99\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+35        android:debuggable="true"
+36        android:icon="@mipmap/ic_launcher"
+36-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:12:9-43
+37        android:label="@string/app_name"
+37-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:13:9-41
+38        android:roundIcon="@mipmap/ic_launcher_round"
+38-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:14:9-54
+39        android:supportsRtl="true"
+39-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:15:9-35
+40        android:testOnly="true"
+41        android:theme="@style/AppTheme" >
+41-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:16:9-40
+42        <activity
+42-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:17:9-25:20
+43            android:name="house.rent.SplashActivity"
+43-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:18:13-43
+44            android:exported="true" >
+44-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:19:13-36
+45            <intent-filter>
+45-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:20:13-24:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:21:17-69
+46-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:21:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:23:17-77
+48-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:23:27-74
+49            </intent-filter>
+50        </activity>
+51        <activity
+51-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:26:9-28:48
+52            android:name="house.rent.MainActivity"
+52-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:27:13-41
+53            android:exported="true" />
+53-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:28:13-36
+54        <activity
+54-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:29:9-31:40
+55            android:name="house.rent.SignupActivity"
+55-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:30:13-43
+56            android:exported="false" />
+56-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:31:13-37
+57        <activity
+57-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:32:9-36:59
+58            android:name="house.rent.Dashboard"
+58-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:33:13-38
+59            android:exported="false"
+59-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:34:13-37
+60            android:label="@string/title_activity_dashboard"
+60-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:35:13-61
+61            android:theme="@style/AppTheme.NoActionBar" />
+61-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:36:13-56
+62        <activity
+62-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:37:9-39:40
+63            android:name="house.rent.Profile"
+63-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:38:13-36
+64            android:exported="false" />
+64-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:39:13-37
+65        <activity
+65-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:40:9-42:40
+66            android:name="house.rent.HomeActivity"
+66-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:41:13-41
+67            android:exported="false" />
+67-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:42:13-37
+68        <activity
+68-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:43:9-45:40
+69            android:name="house.rent.HomeDetailsActivity"
+69-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:44:13-48
+70            android:exported="false" />
+70-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:45:13-37
+71        <activity
+71-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:46:9-48:40
+72            android:name="house.rent.PostAdActivity"
+72-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:47:13-43
+73            android:exported="false" />
+73-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:48:13-37
+74        <activity
+74-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:49:9-51:40
+75            android:name="house.rent.MyPosts"
+75-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:50:13-36
+76            android:exported="false" />
+76-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:51:13-37
+77        <activity
+77-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:52:9-54:40
+78            android:name="house.rent.MyAdDetails"
+78-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:53:13-40
+79            android:exported="false" />
+79-->C:\Users\jayda\AndroidStudioProjects\HouseRent-master\app\src\main\AndroidManifest.xml:54:13-37
+80        <activity
+80-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:23:9-29:75
+81            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+81-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:24:13-85
+82            android:excludeFromRecents="true"
+82-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:25:13-46
+83            android:exported="true"
+83-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:26:13-36
+84            android:launchMode="singleInstance"
+84-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:27:13-48
+85            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+85-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:28:13-102
+86            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+86-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:29:13-72
+87
+88        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+88-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:31:9-35:19
+88-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:31:18-89
+89            <meta-data
+89-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:32:13-34:85
+90                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+90-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:33:17-109
+91                android:value="com.google.firebase.components.ComponentRegistrar" />
+91-->[com.google.firebase:firebase-auth:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\9d164fcacb5f3f9780543c904141fdef\transformed\jetified-firebase-auth-16.0.1\AndroidManifest.xml:34:17-82
+92            <meta-data
+92-->[com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\2c4223b5ee745bda61222fb5db1149e2\transformed\jetified-firebase-measurement-connector-impl-16.0.1\AndroidManifest.xml:28:13-30:85
+93                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+93-->[com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\2c4223b5ee745bda61222fb5db1149e2\transformed\jetified-firebase-measurement-connector-impl-16.0.1\AndroidManifest.xml:29:17-139
+94                android:value="com.google.firebase.components.ComponentRegistrar" />
+94-->[com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\2c4223b5ee745bda61222fb5db1149e2\transformed\jetified-firebase-measurement-connector-impl-16.0.1\AndroidManifest.xml:30:17-82
+95            <meta-data
+95-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:36:13-38:85
+96                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+96-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:37:17-96
+97                android:value="com.google.firebase.components.ComponentRegistrar" />
+97-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:38:17-82
+98        </service>
+99
+100        <receiver
+100-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:29:9-33:20
+101            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+101-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:30:13-85
+102            android:enabled="true"
+102-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:31:13-35
+103            android:exported="false" >
+103-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:32:13-37
+104        </receiver>
+105        <receiver
+105-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:34:9-42:20
+106            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+106-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:35:13-100
+107            android:enabled="true"
+107-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:36:13-35
+108            android:exported="true"
+108-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:37:13-36
+109            android:permission="android.permission.INSTALL_PACKAGES" >
+109-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:38:13-69
+110            <intent-filter>
+110-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:39:13-41:29
+111                <action android:name="com.android.vending.INSTALL_REFERRER" />
+111-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:40:17-79
+111-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:40:25-76
+112            </intent-filter>
+113        </receiver>
+114
+115        <service
+115-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:44:9-47:40
+116            android:name="com.google.android.gms.measurement.AppMeasurementService"
+116-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:45:13-84
+117            android:enabled="true"
+117-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:46:13-35
+118            android:exported="false" />
+118-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:47:13-37
+119        <service
+119-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:48:9-52:72
+120            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+120-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:49:13-87
+121            android:enabled="true"
+121-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:50:13-35
+122            android:exported="false"
+122-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:51:13-37
+123            android:permission="android.permission.BIND_JOB_SERVICE" />
+123-->[com.google.firebase:firebase-analytics:16.0.1] C:\Users\jayda\.gradle\caches\transforms-3\e8b5b48b840aaf622c2956e22010a447\transformed\jetified-firebase-analytics-16.0.1\AndroidManifest.xml:52:13-69
+124
+125        <receiver
+125-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:41:9-50:20
+126            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+126-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:42:13-78
+127            android:exported="true"
+127-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:43:13-36
+128            android:permission="com.google.android.c2dm.permission.SEND" >
+128-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:44:13-73
+129            <intent-filter>
+129-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:45:13-49:29
+130                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+130-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:46:17-81
+130-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:46:25-78
+131
+132                <category android:name="house.rent" />
+132-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:48:17-61
+132-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:48:27-58
+133            </intent-filter>
+134        </receiver>
+135        <!--
+136             FirebaseInstanceIdService performs security checks at runtime,
+137             no need for explicit permissions despite exported="true"
+138        -->
+139        <service
+139-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:56:9-62:19
+140            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+140-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:57:13-77
+141            android:exported="true" >
+141-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:58:13-36
+142            <intent-filter android:priority="-500" >
+142-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:59:13-61:29
+142-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:59:28-51
+143                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+143-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:60:17-80
+143-->[com.google.firebase:firebase-iid:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\0d6a621c9ff8078e7c13b871b8a76ed3\transformed\jetified-firebase-iid-16.0.0\AndroidManifest.xml:60:25-77
+144            </intent-filter>
+145        </service>
+146
+147        <provider
+147-->[com.google.firebase:firebase-common:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\bd7d9368b8461f5f43c307bc052dd37d\transformed\jetified-firebase-common-16.0.0\AndroidManifest.xml:9:9-13:39
+148            android:name="com.google.firebase.provider.FirebaseInitProvider"
+148-->[com.google.firebase:firebase-common:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\bd7d9368b8461f5f43c307bc052dd37d\transformed\jetified-firebase-common-16.0.0\AndroidManifest.xml:10:13-77
+149            android:authorities="house.rent.firebaseinitprovider"
+149-->[com.google.firebase:firebase-common:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\bd7d9368b8461f5f43c307bc052dd37d\transformed\jetified-firebase-common-16.0.0\AndroidManifest.xml:11:13-72
+150            android:exported="false"
+150-->[com.google.firebase:firebase-common:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\bd7d9368b8461f5f43c307bc052dd37d\transformed\jetified-firebase-common-16.0.0\AndroidManifest.xml:12:13-37
+151            android:initOrder="100" />
+151-->[com.google.firebase:firebase-common:16.0.0] C:\Users\jayda\.gradle\caches\transforms-3\bd7d9368b8461f5f43c307bc052dd37d\transformed\jetified-firebase-common-16.0.0\AndroidManifest.xml:13:13-36
+152
+153        <activity
+153-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\jayda\.gradle\caches\transforms-3\0a21567f1e3c2de4b41e9db6565fb554\transformed\jetified-play-services-base-15.0.1\AndroidManifest.xml:23:9-26:75
+154            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+154-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\jayda\.gradle\caches\transforms-3\0a21567f1e3c2de4b41e9db6565fb554\transformed\jetified-play-services-base-15.0.1\AndroidManifest.xml:24:13-79
+155            android:exported="false"
+155-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\jayda\.gradle\caches\transforms-3\0a21567f1e3c2de4b41e9db6565fb554\transformed\jetified-play-services-base-15.0.1\AndroidManifest.xml:25:13-37
+156            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+156-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\jayda\.gradle\caches\transforms-3\0a21567f1e3c2de4b41e9db6565fb554\transformed\jetified-play-services-base-15.0.1\AndroidManifest.xml:26:13-72
+157
+158        <meta-data
+158-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\jayda\.gradle\caches\transforms-3\d3b206bef17962765abddd95acea150a\transformed\jetified-play-services-basement-15.0.1\AndroidManifest.xml:23:9-25:69
+159            android:name="com.google.android.gms.version"
+159-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\jayda\.gradle\caches\transforms-3\d3b206bef17962765abddd95acea150a\transformed\jetified-play-services-basement-15.0.1\AndroidManifest.xml:24:13-58
+160            android:value="@integer/google_play_services_version" />
+160-->[com.google.android.gms:play-services-basement:15.0.1] C:\Users\jayda\.gradle\caches\transforms-3\d3b206bef17962765abddd95acea150a\transformed\jetified-play-services-basement-15.0.1\AndroidManifest.xml:25:13-66
+161
+162        <provider
+162-->[androidx.emoji2:emoji2:1.2.0] C:\Users\jayda\.gradle\caches\transforms-3\69262e6e1ef2f549fc8371faf15c8c5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+163            android:name="androidx.startup.InitializationProvider"
+163-->[androidx.emoji2:emoji2:1.2.0] C:\Users\jayda\.gradle\caches\transforms-3\69262e6e1ef2f549fc8371faf15c8c5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+164            android:authorities="house.rent.androidx-startup"
+164-->[androidx.emoji2:emoji2:1.2.0] C:\Users\jayda\.gradle\caches\transforms-3\69262e6e1ef2f549fc8371faf15c8c5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+165            android:exported="false" >
+165-->[androidx.emoji2:emoji2:1.2.0] C:\Users\jayda\.gradle\caches\transforms-3\69262e6e1ef2f549fc8371faf15c8c5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+166            <meta-data
+166-->[androidx.emoji2:emoji2:1.2.0] C:\Users\jayda\.gradle\caches\transforms-3\69262e6e1ef2f549fc8371faf15c8c5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+167                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+167-->[androidx.emoji2:emoji2:1.2.0] C:\Users\jayda\.gradle\caches\transforms-3\69262e6e1ef2f549fc8371faf15c8c5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+168                android:value="androidx.startup" />
+168-->[androidx.emoji2:emoji2:1.2.0] C:\Users\jayda\.gradle\caches\transforms-3\69262e6e1ef2f549fc8371faf15c8c5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+169            <meta-data
+169-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\jayda\.gradle\caches\transforms-3\d792cfc6337e3c8fbac3183f5288f77a\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+170                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+170-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\jayda\.gradle\caches\transforms-3\d792cfc6337e3c8fbac3183f5288f77a\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+171                android:value="androidx.startup" />
+171-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\jayda\.gradle\caches\transforms-3\d792cfc6337e3c8fbac3183f5288f77a\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+172        </provider>
+173    </application>
+174
+175</manifest>

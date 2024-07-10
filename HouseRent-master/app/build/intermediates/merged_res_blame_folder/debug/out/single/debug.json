@@ -1,0 +1,250 @@
+[
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable-v21_ic_menu_camera.xml.flat",
+        "source": "house.rent.app-main-35:/drawable-v21/ic_menu_camera.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_posts.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/posts.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_home.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/home.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable-v21_ic_menu_gallery.xml.flat",
+        "source": "house.rent.app-main-35:/drawable-v21/ic_menu_gallery.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_ic_done_black_24dp.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/ic_done_black_24dp.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable-v21_ic_menu_share.xml.flat",
+        "source": "house.rent.app-main-35:/drawable-v21/ic_menu_share.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_content_dashboard.xml.flat",
+        "source": "house.rent.app-main-35:/layout/content_dashboard.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/menu_edit_menu.xml.flat",
+        "source": "house.rent.app-main-35:/menu/edit_menu.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_main.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_user_display_picture.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/user_display_picture.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "house.rent.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_search.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/search.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_profile.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_password.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/password.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_ic_exit_to_app_black_24dp.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/ic_exit_to_app_black_24dp.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_post_ad.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_post_ad.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_signup.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_home_details.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_home_details.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_ic_paomedia_small_n_flat_house.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/ic_paomedia_small_n_flat_house.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_ic_search.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/ic_search.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/menu_dashboard.xml.flat",
+        "source": "house.rent.app-main-35:/menu/dashboard.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_username.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/username.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_icon.png.flat",
+        "source": "house.rent.app-main-35:/drawable/icon.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable-v21_ic_menu_slideshow.xml.flat",
+        "source": "house.rent.app-main-35:/drawable-v21/ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable-v21_signboard_for_rent.png.flat",
+        "source": "house.rent.app-main-35:/drawable-v21/signboard_for_rent.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_my_posts.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_my_posts.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_post_ads.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/post_ads.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/menu_menusearch.xml.flat",
+        "source": "house.rent.app-main-35:/menu/menusearch.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_my_ad_details.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_my_ad_details.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable-v21_ic_menu_manage.xml.flat",
+        "source": "house.rent.app-main-35:/drawable-v21/ic_menu_manage.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/menu_activity_dashboard_drawer.xml.flat",
+        "source": "house.rent.app-main-35:/menu/activity_dashboard_drawer.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/menu_myposts_menu.xml.flat",
+        "source": "house.rent.app-main-35:/menu/myposts_menu.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_dashboard.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_side_nav_bar.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/side_nav_bar.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_nav_header_dashboard.xml.flat",
+        "source": "house.rent.app-main-35:/layout/nav_header_dashboard.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "house.rent.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_ic_account_circle_black_24dp.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/ic_account_circle_black_24dp.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_home.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_home.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_list_house.xml.flat",
+        "source": "house.rent.app-main-35:/layout/list_house.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "house.rent.app-main-35:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_ic_for_rent_signage.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/ic_for_rent_signage.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_app_bar_dashboard.xml.flat",
+        "source": "house.rent.app-main-35:/layout/app_bar_dashboard.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/layout_activity_splash.xml.flat",
+        "source": "house.rent.app-main-35:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable_email.xml.flat",
+        "source": "house.rent.app-main-35:/drawable/email.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "house.rent.app-pngs-29:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "house.rent.app-merged_res-33:/drawable-v21_ic_menu_send.xml.flat",
+        "source": "house.rent.app-main-35:/drawable-v21/ic_menu_send.xml"
+    }
+]
