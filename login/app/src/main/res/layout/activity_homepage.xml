@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/login"
+    android:padding="50dp">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:textColor="#56B0AA"
+        android:text="Welcome"
+        android:layout_centerHorizontal="true"
+        />
+    
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="#9C27B0"
+        android:drawableLeft="@drawable/instagram"
+        android:padding="10dp"
+        android:text="insta id:mr.jaydave_47" />
+
+    <TextView
+        android:id="@+id/snap_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/contact"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/snap"
+        android:textColor="@color/yellow"
+        android:text="snap id:jay_dave2201" />
+
+</RelativeLayout>
