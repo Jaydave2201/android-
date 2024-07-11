@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -24,6 +27,9 @@ public class signup extends AppCompatActivity {
     Button log;
     EditText name, email, pass, contact;
     ImageView hide, show;
+    RadioGroup gender;
+    String sGender;
+    CheckBox chek;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -45,6 +51,18 @@ public class signup extends AppCompatActivity {
         contact = findViewById(R.id.contact);
         hide = findViewById(R.id.hide);
         show = findViewById(R.id.show);
+        chek = findViewById(R.id.main_chek);
+
+        gender = findViewById(R.id.main_gender);
+
+        gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton rb = findViewById(i);
+                sGender = rb.getText().toString();
+                new Commanmethod(signup.this ,sGender);
+            }
+        });
 
         show.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +106,12 @@ public class signup extends AppCompatActivity {
             pass.setError("Password required");
         } else if (passwordInput.length() < 6) {
             pass.setError("Password must contain at least 6 characters");
+        }
+        else if (gender.getCheckedRadioButtonId()== -1){
+            new Commanmethod(signup.this,"Please Select Gender");
+        } else if (!chek.isChecked()) {
+
+            new Commanmethod(signup.this,"Please Select Terms & Conditions");
         } else {
             Intent intent = new Intent(signup.this, MainActivity.class);
             startActivity(intent);
