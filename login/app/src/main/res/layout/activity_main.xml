@@ -8,10 +8,10 @@
     android:padding="50dp">
 
     <TextView
-        style="@style/view_1"
         android:id="@+id/loginimg"
+        style="@style/view_1"
         android:drawableTop="@drawable/loginimg"
-        />
+        android:fontFamily="@font/asul" />
 
     <TextView
         android:id="@+id/login"

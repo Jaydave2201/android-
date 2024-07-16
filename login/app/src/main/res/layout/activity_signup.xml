@@ -100,14 +100,14 @@
     </FrameLayout>
 
     <RadioGroup
-        android:id="@+id/main_gender"
+        android:id="@+id/signup_gender"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     <RadioButton
         android:layout_weight="1"
-        android:id="@+id/main_male"
+        android:id="@+id/signup_male"
         android:layout_marginTop="@dimen/_10sdp"
         android:text="Male"
         android:layout_width="match_parent"
@@ -115,7 +115,7 @@
 
     <RadioButton
         android:layout_weight="1"
-        android:id="@+id/main_female"
+        android:id="@+id/signup_female"
         android:layout_marginTop="@dimen/_10sdp"
         android:text="Female"
         android:layout_width="match_parent"

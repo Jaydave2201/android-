@@ -2,6 +2,7 @@ package com.example.login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -31,6 +32,8 @@ public class signup extends AppCompatActivity {
     String sGender;
     CheckBox chek;
 
+    SQLiteDatabase sqldb;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +41,11 @@ public class signup extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_signup);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.signup), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        sqldb = openOrCreateDatabase("DIPLOMA1.db",MODE_PRIVATE,null);
+
+
+        String tableQuery="CREATE TABLE USERS(NAME VARCHAR(10), CONTACT BIGINT(10),EMAIL VARCHAR(20),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
+        sqldb.execSQL(tableQuery);
 
         log = findViewById(R.id.log); // Initialize the log button
         name = findViewById(R.id.name);
@@ -53,7 +56,7 @@ public class signup extends AppCompatActivity {
         show = findViewById(R.id.show);
         chek = findViewById(R.id.main_chek);
 
-        gender = findViewById(R.id.main_gender);
+        gender = findViewById(R.id.signup_gender);
 
         gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
