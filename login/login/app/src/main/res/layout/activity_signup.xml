@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/login"
+    android:padding="50dp">
+    <TextView
+        style="@style/view_1"
+        android:id="@+id/loginimg"
+        android:drawableTop="@drawable/loginimg"
+        />
+
+    <TextView
+        android:id="@+id/signup"
+        style="@style/view_1"
+        android:text="Signup"
+        android:layout_below="@id/loginimg"
+        android:textColor="#47BDB6"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp"
+        android:gravity="center"/>
+<EditText
+        android:id="@+id/name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Enter Your name"
+    android:background="@drawable/customboder"
+    android:textColorHint="@color/black"
+    android:drawableLeft="@drawable/name"
+    android:textColor="@color/black"
+    android:autofillHints="Enter your name"
+    android:inputType="text"
+    android:layout_below="@id/signup"
+    android:layout_marginTop="16dp"/>
+    />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Email ID"
+        android:background="@drawable/customboder"
+        android:textColorHint="@color/black"
+        android:drawableLeft="@drawable/mail"
+        android:textColor="@color/black"
+        android:autofillHints="emailAddress"
+        android:inputType="text"
+        android:layout_below="@id/name"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Number"
+        android:background="@drawable/customboder"
+        android:textColorHint="@color/black"
+        android:drawableLeft="@drawable/number"
+        android:textColor="@color/black"
+        android:autofillHints="Number"
+        android:inputType="number"
+        android:layout_below="@id/email"
+        android:layout_marginTop="16dp"/>
+
+    <FrameLayout
+        android:layout_below="@id/contact"
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:textColorHint="@color/black"
+            android:drawableLeft="@drawable/pass"
+            android:textColor="@color/black"
+            android:background="@drawable/customboder"
+            android:inputType="textPassword"
+            android:layout_marginTop="16dp"/>
+
+        <ImageView
+            android:id="@+id/show"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end|center"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/hide"
+            android:visibility="gone"
+            />
+
+        <ImageView
+            android:id="@+id/hide"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end|center"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/show"
+            />
+    </FrameLayout>
+
+    <Button
+        android:background="@drawable/custombutton"
+        app:backgroundTint="@null"
+        android:id="@+id/log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Signup"
+        android:layout_below="@id/main_frame"
+        android:layout_marginTop="24dp"
+        android:onClick="onLoginButtonClick"/>
+</RelativeLayout>
+
