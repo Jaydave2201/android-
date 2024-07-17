@@ -2,9 +2,9 @@ package com.example.login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
@@ -13,13 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -39,15 +34,12 @@ public class signup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_signup);
 
-        sqldb = openOrCreateDatabase("DIPLOMA1.db",MODE_PRIVATE,null);
+        sqldb = openOrCreateDatabase("DIPLOMA1.db", MODE_PRIVATE, null);
 
-
-        String tableQuery="CREATE TABLE if not exists USERS(NAME VARCHAR(10), CONTACT BIGINT(10),EMAIL VARCHAR(20),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
+        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10), CONTACT BIGINT(10),EMAIL VARCHAR(20),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
         sqldb.execSQL(tableQuery);
-
 
         log = findViewById(R.id.log); // Initialize the log button
         name = findViewById(R.id.name);
@@ -65,7 +57,7 @@ public class signup extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 RadioButton rb = findViewById(i);
                 sGender = rb.getText().toString();
-                new Commanmethod(signup.this ,sGender);
+                new Commanmethod(signup.this, sGender);
             }
         });
 
@@ -111,20 +103,24 @@ public class signup extends AppCompatActivity {
             pass.setError("Password required");
         } else if (passwordInput.length() < 6) {
             pass.setError("Password must contain at least 6 characters");
-        }
-        else if (gender.getCheckedRadioButtonId()== -1){
-            new Commanmethod(signup.this,"Please Select Gender");
+        } else if (gender.getCheckedRadioButtonId() == -1) {
+            new Commanmethod(signup.this, "Please Select Gender");
         } else if (!chek.isChecked()) {
-
-            new Commanmethod(signup.this,"Please Select Terms & Conditions");
+            new Commanmethod(signup.this, "Please Select Terms & Conditions");
         } else {
-            String insertQuery = "INSERT INTO USERS VALUES('" + name.getText().toString() + "','" + contact.getText().toString() + "','" + email.getText().toString() + "','" + pass.getText().toString() + "','" + sGender + "')";
-            sqldb.execSQL(insertQuery);
+            String selectQuery = "SELECT * FROM USERS WHERE EMAIL='" + email.getText().toString() + "' OR CONTACT='" + contact.getText().toString() + "'";
+            Cursor cursor = sqldb.rawQuery(selectQuery, null);
+            if (cursor.getCount() > 0) {
+                new Commanmethod(signup.this, "User Already Exists");
+            } else {
+                String insertQuery = "INSERT INTO USERS VALUES('" + name.getText().toString() + "','" + contact.getText().toString() + "','" + email.getText().toString() + "','" + pass.getText().toString() + "','" + sGender + "')";
+                sqldb.execSQL(insertQuery);
 
-            Intent intent = new Intent(signup.this, MainActivity.class);
-            startActivity(intent);
-            Snackbar.make(view, "Signup Succesfully", Snackbar.LENGTH_SHORT).show();
-        }
+                Intent intent = new Intent(signup.this, MainActivity.class);
+                startActivity(intent);
+                Snackbar.make(view, "Signup Successfully", Snackbar.LENGTH_SHORT).show();
+            }
+            cursor.close();
         }
     }
-
+}
