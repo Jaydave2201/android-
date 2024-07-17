@@ -12,12 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login"
         tools:targetApi="31">
-        <activity
-            android:name=".design2"
-            android:exported="false" />
-        <activity
-            android:name=".design"
-            android:exported="false" />
+
         <activity
             android:name=".splash_Activity"
             android:exported="true">

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
@@ -44,8 +45,9 @@ public class signup extends AppCompatActivity {
         sqldb = openOrCreateDatabase("DIPLOMA1.db",MODE_PRIVATE,null);
 
 
-        String tableQuery="CREATE TABLE USERS(NAME VARCHAR(10), CONTACT BIGINT(10),EMAIL VARCHAR(20),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
+        String tableQuery="CREATE TABLE if not exists USERS(NAME VARCHAR(10), CONTACT BIGINT(10),EMAIL VARCHAR(20),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
         sqldb.execSQL(tableQuery);
+
 
         log = findViewById(R.id.log); // Initialize the log button
         name = findViewById(R.id.name);
@@ -116,10 +118,13 @@ public class signup extends AppCompatActivity {
 
             new Commanmethod(signup.this,"Please Select Terms & Conditions");
         } else {
+            String insertQuery = "INSERT INTO USERS VALUES('" + name.getText().toString() + "','" + contact.getText().toString() + "','" + email.getText().toString() + "','" + pass.getText().toString() + "','" + sGender + "')";
+            sqldb.execSQL(insertQuery);
+
             Intent intent = new Intent(signup.this, MainActivity.class);
             startActivity(intent);
-            Snackbar.make(view,"Signup Succesfully",Snackbar.LENGTH_SHORT).show();
-
+            Snackbar.make(view, "Signup Succesfully", Snackbar.LENGTH_SHORT).show();
+        }
         }
     }
-}
+

@@ -35,19 +35,7 @@
     android:autofillHints="Enter your name"
     android:inputType="text"
     android:layout_marginTop="16dp"/>
-    />
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Email ID"
-        android:background="@drawable/customboder"
-        android:textColorHint="@color/black"
-        android:drawableLeft="@drawable/mail"
-        android:textColor="@color/black"
-        android:autofillHints="emailAddress"
-        android:inputType="text"
-        android:layout_marginTop="16dp"/>
+
 
     <EditText
         android:id="@+id/contact"
@@ -61,6 +49,19 @@
         android:autofillHints="Number"
         android:inputType="number"
         android:layout_marginTop="16dp"/>
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Email ID"
+        android:background="@drawable/customboder"
+        android:textColorHint="@color/black"
+        android:drawableLeft="@drawable/mail"
+        android:textColor="@color/black"
+        android:autofillHints="emailAddress"
+        android:inputType="text"
+        android:layout_marginTop="16dp"/>
+
 
     <FrameLayout
         android:id="@+id/main_frame"
