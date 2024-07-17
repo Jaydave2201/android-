@@ -38,7 +38,7 @@ public class signup extends AppCompatActivity {
 
         sqldb = openOrCreateDatabase("DIPLOMA1.db", MODE_PRIVATE, null);
 
-        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10), CONTACT BIGINT(10),EMAIL VARCHAR(20),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
+        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10),EMAIL VARCHAR(20),CONTACT BIGINT(10),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
         sqldb.execSQL(tableQuery);
 
         log = findViewById(R.id.log); // Initialize the log button
@@ -113,7 +113,7 @@ public class signup extends AppCompatActivity {
             if (cursor.getCount() > 0) {
                 new Commanmethod(signup.this, "User Already Exists");
             } else {
-                String insertQuery = "INSERT INTO USERS VALUES('" + name.getText().toString() + "','" + contact.getText().toString() + "','" + email.getText().toString() + "','" + pass.getText().toString() + "','" + sGender + "')";
+                String insertQuery = "INSERT INTO USERS VALUES('" + name.getText().toString() + "','" + email.getText().toString() + "','" + contact.getText().toString() + "','" + pass.getText().toString() + "','" + sGender + "')";
                 sqldb.execSQL(insertQuery);
 
                 Intent intent = new Intent(signup.this, MainActivity.class);

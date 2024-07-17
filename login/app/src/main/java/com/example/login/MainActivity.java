@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,8 +21,9 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
-    Button button, button1;
+    Button button;
     EditText email, pass;
+    TextView sign;
     ImageView hide, show;
 
     @Override
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        button1 = findViewById(R.id.sign);
+        sign = findViewById(R.id.sign);
         button = findViewById(R.id.log);
         email = findViewById(R.id.email);
         pass = findViewById(R.id.pass);
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         button.setOnClickListener(this::onClick);
-        button1.setOnClickListener(view -> {
+        sign.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, signup.class);
             startActivity(intent);
         });
