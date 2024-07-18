@@ -36,7 +36,7 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        sqldb = openOrCreateDatabase("DIPLOMA1.db", MODE_PRIVATE, null);
+        sqldb = openOrCreateDatabase("DIPLOMA2.db", MODE_PRIVATE, null);
 
         String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10),EMAIL VARCHAR(20),CONTACT BIGINT(10),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
         sqldb.execSQL(tableQuery);
@@ -122,5 +122,6 @@ public class signup extends AppCompatActivity {
             }
             cursor.close();
         }
+
     }
 }

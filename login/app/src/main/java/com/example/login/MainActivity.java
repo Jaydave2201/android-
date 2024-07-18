@@ -1,6 +1,8 @@
 package com.example.login;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     EditText email, pass;
     TextView sign;
     ImageView hide, show;
+    SQLiteDatabase sqldb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         pass = findViewById(R.id.pass);
         hide = findViewById(R.id.hide);
         show = findViewById(R.id.show);
+        sqldb = openOrCreateDatabase("DIPLOMA2.db", MODE_PRIVATE, null);
+
+        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10),EMAIL VARCHAR(20),CONTACT BIGINT(10),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
+        sqldb.execSQL(tableQuery);
 
         show.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +93,16 @@ public class MainActivity extends AppCompatActivity {
         } else if (passwordInput.length() < 6) {
             pass.setError("Password must contain at least 6 characters");
         } else {
-            Intent intent = new Intent(MainActivity.this, homepage.class);
-            startActivity(intent);
-            Snackbar.make(view,"Login Succesfully",Snackbar.LENGTH_SHORT).show();
+            String selectQuery = "SELECT * FROM USERS WHERE EMAIL='" + email.getText().toString() + "' AND PASSWORD='" + pass.getText().toString() + "'";
+            Cursor cursor = sqldb.rawQuery(selectQuery, null);
+            if (cursor.getCount() > 0) {
+                Intent intent = new Intent(MainActivity.this, homepage.class);
+                startActivity(intent);
+                Snackbar.make(view, "Login Succesfully", Snackbar.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(MainActivity.this, "EmailId and Password Don't Matched", Toast.LENGTH_SHORT).show();
+
+            }
         }
     }
 }

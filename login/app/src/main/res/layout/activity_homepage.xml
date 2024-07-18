@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="50sp"
-        android:textColor="#56B0AA"
+        android:textColor="#E8E3E3"
         android:text="Welcome"
         android:layout_centerHorizontal="true"
         />
