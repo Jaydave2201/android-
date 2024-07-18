@@ -1,5 +1,6 @@
 package com.example.login;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -25,10 +26,11 @@ import java.util.regex.Pattern;
 public class MainActivity extends AppCompatActivity {
     Button button;
     EditText email, pass;
-    TextView sign;
+    TextView sign,forgot;
     ImageView hide, show;
     SQLiteDatabase sqldb;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         pass = findViewById(R.id.pass);
         hide = findViewById(R.id.hide);
         show = findViewById(R.id.show);
+        forgot = findViewById(R.id.forgot);
         sqldb = openOrCreateDatabase("DIPLOMA2.db", MODE_PRIVATE, null);
 
         String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10),EMAIL VARCHAR(20),CONTACT BIGINT(10),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
@@ -73,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         button.setOnClickListener(this::onClick);
+        forgot.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, forgotpass.class);
+            startActivity(intent);
+        });
         sign.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, signup.class);
             startActivity(intent);

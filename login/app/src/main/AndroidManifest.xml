@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login"
         tools:targetApi="31">
-
+        <activity
+            android:name=".forgotpass"
+            android:exported="false" />
         <activity
             android:name=".splash_Activity"
             android:exported="true">
