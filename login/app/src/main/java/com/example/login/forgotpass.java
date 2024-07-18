@@ -1,15 +1,16 @@
 package com.example.login;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +21,7 @@ public class forgotpass extends AppCompatActivity {
     private EditText emailEditText, newPasswordEditText, reenterPasswordEditText;
     private ImageView showNewPassword, hideNewPassword, showReenterPassword, hideReenterPassword;
     private Button changePasswordButton;
-    private SQLiteDatabase sd;
+    private SQLiteDatabase sqldb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class forgotpass extends AppCompatActivity {
         setContentView(R.layout.activity_forgotpass);
 
         // Initialize the SQLiteDatabase
-        sd = openOrCreateDatabase("DIPLOMA1.DB", MODE_PRIVATE, null);
+        sqldb = openOrCreateDatabase("DIPLOMA2.db", MODE_PRIVATE, null);
 
         // Initialize Views
         emailEditText = findViewById(R.id.email);
@@ -39,6 +40,9 @@ public class forgotpass extends AppCompatActivity {
         showReenterPassword = findViewById(R.id.show1);
         hideReenterPassword = findViewById(R.id.hide1);
         changePasswordButton = findViewById(R.id.log);
+
+        String tableQuery = "CREATE TABLE IF NOT EXISTS USERS (NAME VARCHAR(10), EMAIL VARCHAR(20), CONTACT BIGINT(10), PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
+        sqldb.execSQL(tableQuery);
 
         // Set up password visibility toggles
         showNewPassword.setOnClickListener(new View.OnClickListener() {
@@ -100,20 +104,17 @@ public class forgotpass extends AppCompatActivity {
         } else if (!newPassword.equals(reenterPassword)) {
             reenterPasswordEditText.setError("Passwords do not match");
         } else {
-            Cursor cursor = sd.rawQuery("SELECT * FROM USERS WHERE EMAIL = ?", new String[]{email});
-            if (cursor.moveToFirst()) {
-                try {
-                    String updateQuery = "UPDATE USERS SET PASSWORD = ? WHERE EMAIL = ?";
-                    sd.execSQL(updateQuery, new String[]{newPassword, email});
-                    Snackbar.make(view, "Password changed successfully", Snackbar.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    Snackbar.make(view, "Error updating password", Snackbar.LENGTH_SHORT).show();
-                    Log.e("ForgotPasswordActivity", "Error updating password", e);
-                }
+            String selectQuery = "SELECT * FROM USERS WHERE EMAIL='" + email + "'";
+            Cursor cursor = sqldb.rawQuery(selectQuery, null);
+            if (cursor.getCount() > 0) {
+
+                Intent intent = new Intent(forgotpass.this, MainActivity.class);
+                startActivity(intent);
+                Snackbar.make(view, "Password Changed Successfully", Snackbar.LENGTH_LONG).show();
             } else {
-                Snackbar.make(view, "Email not found", Snackbar.LENGTH_SHORT).show();
+                cursor.close();
+                Toast.makeText(forgotpass.this, "Email ID doesn't match any user", Toast.LENGTH_LONG).show();
             }
-            cursor.close();
         }
     }
 }
