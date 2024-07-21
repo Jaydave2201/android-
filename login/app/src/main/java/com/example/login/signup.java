@@ -111,7 +111,8 @@ public class signup extends AppCompatActivity {
             String selectQuery = "SELECT * FROM USERS WHERE EMAIL='" + email.getText().toString() + "' OR CONTACT='" + contact.getText().toString() + "'";
             Cursor cursor = sqldb.rawQuery(selectQuery, null);
             if (cursor.getCount() > 0) {
-                new Commanmethod(signup.this, "User Already Exists");
+
+
             } else {
                 String insertQuery = "INSERT INTO USERS VALUES('" + name.getText().toString() + "','" + email.getText().toString() + "','" + contact.getText().toString() + "','" + pass.getText().toString() + "','" + sGender + "')";
                 sqldb.execSQL(insertQuery);

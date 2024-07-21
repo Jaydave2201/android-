@@ -1,24 +1,32 @@
 package com.example.login;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class homepage extends AppCompatActivity {
+    TextView welcomeText;
+    SharedPreferences sp;
+
+
+    //Shared  Preference Name and key name create karvanu to use it for further same mainActivity jevu
+
+    private static final String Shared_preferences_name = "mysp";
+    private static final String Key_name = "username";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_homepage);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.welcome), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        welcomeText = findViewById(R.id.welcome);
+        sp = getSharedPreferences(Shared_preferences_name, MODE_PRIVATE);
+
+        // Retrieve the stored name from SharedPreferences
+        String userName = sp.getString(Key_name, "User");
+
+        // Set the retrieved name to the TextView
+        welcomeText.setText("Welcome " + userName);
     }
 }

@@ -2,6 +2,7 @@ package com.example.login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -26,9 +27,15 @@ import java.util.regex.Pattern;
 public class MainActivity extends AppCompatActivity {
     Button button;
     EditText email, pass;
-    TextView sign,forgot;
+    TextView sign, forgot;
     ImageView hide, show;
     SQLiteDatabase sqldb;
+    SharedPreferences sp;
+
+    //Shared  Preference Name and key name create karvanu to use it for further
+    private static final String Shared_preferences_name = "mysp";
+    private static final String Key_name = "username";
+    private static final String key_email = "useremail";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -50,29 +57,24 @@ public class MainActivity extends AppCompatActivity {
         hide = findViewById(R.id.hide);
         show = findViewById(R.id.show);
         forgot = findViewById(R.id.forgot);
+        sp = getSharedPreferences(Shared_preferences_name, MODE_PRIVATE);
         sqldb = openOrCreateDatabase("DIPLOMA2.db", MODE_PRIVATE, null);
 
-        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10),EMAIL VARCHAR(20),CONTACT BIGINT(10),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
+        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10), EMAIL VARCHAR(20), CONTACT BIGINT(10), PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
         sqldb.execSQL(tableQuery);
 
-        show.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                show.setVisibility(View.GONE);
-                hide.setVisibility(View.VISIBLE);
-                pass.setTransformationMethod(null);
-                pass.setSelection(pass.length());
-            }
+        show.setOnClickListener(view -> {
+            show.setVisibility(View.GONE);
+            hide.setVisibility(View.VISIBLE);
+            pass.setTransformationMethod(null);
+            pass.setSelection(pass.length());
         });
 
-        hide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                show.setVisibility(View.VISIBLE);
-                hide.setVisibility(View.GONE);
-                pass.setTransformationMethod(new PasswordTransformationMethod());
-                pass.setSelection(pass.length());
-            }
+        hide.setOnClickListener(view -> {
+            show.setVisibility(View.VISIBLE);
+            hide.setVisibility(View.GONE);
+            pass.setTransformationMethod(new PasswordTransformationMethod());
+            pass.setSelection(pass.length());
         });
 
         button.setOnClickListener(this::onClick);
@@ -87,9 +89,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClick(View view) {
-        String emailPattern = "^[a-zA-Z]+\\d+@\\w+\\.com$";
+        // After clicking login, the data should be stored in SharedPreferences
+        SharedPreferences.Editor editor = sp.edit();
         String emailInput = email.getText().toString().trim();
         String passwordInput = pass.getText().toString().trim();
+        String emailPattern = "^[\\w.-]+@[\\w.-]+\\.\\w+$";
 
         if (emailInput.equals("")) {
             email.setError("Email ID required");
@@ -100,16 +104,24 @@ public class MainActivity extends AppCompatActivity {
         } else if (passwordInput.length() < 6) {
             pass.setError("Password must contain at least 6 characters");
         } else {
-            String selectQuery = "SELECT * FROM USERS WHERE EMAIL='" + email.getText().toString() + "' AND PASSWORD='" + pass.getText().toString() + "'";
+            String selectQuery = "SELECT NAME, EMAIL FROM USERS WHERE EMAIL='" + emailInput + "' AND PASSWORD='" + passwordInput + "'";
             Cursor cursor = sqldb.rawQuery(selectQuery, null);
+    //After clicking in loin the data should be shared Preference ena mate editor use karvanu
             if (cursor.getCount() > 0) {
-                Intent intent = new Intent(MainActivity.this, homepage.class);
-                startActivity(intent);
-                Snackbar.make(view, "Login Succesfully", Snackbar.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(MainActivity.this, "EmailId and Password Don't Matched", Toast.LENGTH_SHORT).show();
+                cursor.moveToFirst();
+                String username = cursor.getString(cursor.getColumnIndex("NAME"));
 
+                editor.putString(Key_name, username);
+                editor.apply();
+
+                Intent intent = new Intent(MainActivity.this, homepage.class);
+                intent.putExtra("userName", username);
+                startActivity(intent);
+                Snackbar.make(view, "Login Successfully", Snackbar.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(MainActivity.this, "Email ID and Password Don't Match", Toast.LENGTH_SHORT).show();
             }
+            cursor.close();
         }
     }
 }
