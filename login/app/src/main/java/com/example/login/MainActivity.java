@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     //Shared  Preference Name and key name create karvanu to use it for further
     private static final String Shared_preferences_name = "mysp";
     private static final String Key_name = "username";
-    private static final String key_email = "useremail";
 
     @SuppressLint("MissingInflatedId")
     @Override
