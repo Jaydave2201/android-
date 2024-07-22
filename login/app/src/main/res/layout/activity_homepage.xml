@@ -13,7 +13,7 @@
         android:id="@+id/welcome"
         style="@style/view_1"
         android:text="Welcome NAME"
-        android:textColor="#47BDB6"
+        android:textColor="#AEE4E1"
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
