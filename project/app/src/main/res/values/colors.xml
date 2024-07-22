@@ -2,13 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#CA1A1A</color>
-    <color name="blue">#03A9F4</color>
-    <color name="green">#83F13E</color>
-    <color name="pink">#F359C0</color>
-    <color name="yellow">#EAC644</color>
-    <color name="skyblue">#55B6E1</color>
-    <color name="orange">#F49406</color>
-
-
+    <color name="green">#3E7A65</color>
+    <color name="greenlight">#5AEAB7</color>
 </resources>
