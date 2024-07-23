@@ -13,7 +13,6 @@
         android:layout_width="195dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_20sdp"
         android:drawableTop="@drawable/car" />
 
     <TextView
