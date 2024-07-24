@@ -11,20 +11,24 @@
     android:padding="16dp"
     tools:context=".altocar">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="175dp"
+        android:background="@drawable/alto"/>
+
     <TextView
         android:id="@+id/welcome"
         style="@style/view_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome NAME"
+        android:layout_gravity="center"
+        android:layout_marginBottom="180dp"
+        android:gravity="center"
+        android:text="Carname"
+
         android:textColor="@color/green"
         android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:layout_marginBottom="180dp"/>
+        android:textStyle="bold" />
 
 
 
