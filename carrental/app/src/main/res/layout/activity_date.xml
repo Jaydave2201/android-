@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:background="@drawable/login"
     android:padding="16dp"
-    tools:context=".homepage">
+    tools:context=".date">
 
     <TextView
         android:id="@+id/welcome"
