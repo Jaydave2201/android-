@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase sqldb;
     SharedPreferences sp;
 
-    //Shared  Preference Name and key name create karvanu to use it for further
+
     private static final String Shared_preferences_name = "mysp";
     private static final String Key_name = "username";
 
@@ -40,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        sp = getSharedPreferences(Shared_preferences_name, MODE_PRIVATE);
+        boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
+
+        if (isLoggedIn) {
+
+            Intent intent = new Intent(MainActivity.this, homepage.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
@@ -105,18 +118,20 @@ public class MainActivity extends AppCompatActivity {
         } else {
             String selectQuery = "SELECT NAME, EMAIL FROM USERS WHERE EMAIL='" + emailInput + "' AND PASSWORD='" + passwordInput + "'";
             Cursor cursor = sqldb.rawQuery(selectQuery, null);
-    //After clicking in loin the data should be shared Preference ena mate editor use karvanu
+
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 String username = cursor.getString(cursor.getColumnIndex("NAME"));
 
                 editor.putString(Key_name, username);
+                editor.putBoolean("isLoggedIn", true);  // Save login state
                 editor.apply();
 
                 Intent intent = new Intent(MainActivity.this, homepage.class);
                 intent.putExtra("userName", username);
                 startActivity(intent);
                 Snackbar.make(view, "Login Successfully", Snackbar.LENGTH_LONG).show();
+                finish();
             } else {
                 Toast.makeText(MainActivity.this, "Email ID and Password Don't Match", Toast.LENGTH_SHORT).show();
             }

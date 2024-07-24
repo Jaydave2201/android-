@@ -31,6 +31,7 @@
     <EditText
         android:id="@+id/name"
         android:layout_width="317dp"
+        android:drawableLeft="@drawable/name"
         android:layout_height="wrap_content"
         android:layout_below="@id/signup"
         android:layout_centerHorizontal="true"
@@ -43,11 +44,12 @@
     <EditText
         android:id="@+id/email"
         android:layout_width="317dp"
+        android:drawableLeft="@drawable/mail"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:hint="Enter Email ID"
+        android:hint="  Enter Email ID"
         android:inputType="textEmailAddress"
         android:textColor="@color/green"
         android:textColorHint="@color/green"/>
@@ -57,9 +59,10 @@
         android:layout_width="317dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/email"
+        android:drawableLeft="@drawable/num"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:hint="Enter Your Number"
+        android:hint=" Enter Your Number"
         android:inputType="number"
         android:textColor="@color/green"
         android:textColorHint="@color/green"/>
@@ -77,6 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Password"
+            android:drawableLeft="@drawable/pass"
             android:inputType="textPassword"
             android:textColor="@color/green"
             android:textColorHint="@color/green"/>
@@ -118,7 +122,7 @@
 
         <RadioButton
             android:id="@+id/signup_female"
-            android:layout_marginLeft="90dp"
+            android:layout_marginLeft="60dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female"

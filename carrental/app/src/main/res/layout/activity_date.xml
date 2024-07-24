@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/login"
+    android:padding="16dp"
+    tools:context=".homepage">
+
+    <TextView
+        android:id="@+id/welcome"
+        style="@style/view_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome NAME"
+        android:textColor="@color/green"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_marginBottom="180dp"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From Date"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"/>
+
+    <EditText
+        android:id="@+id/FromDate"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter From Date"
+        android:drawableRight="@drawable/date"
+        android:textColor="@color/green"
+        android:textColorHint="@color/green"
+        android:inputType="date"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To Date"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/ToDate"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter To Date"
+        android:drawableRight="@drawable/date"
+        android:textColor="@color/green"
+        android:textColorHint="@color/green"
+        android:inputType="date"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:padding="10dp"
+      />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="25dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custombutton"
+        android:onClick="onLoginButtonClick"
+        android:text="Submit"
+        android:textColor="@color/white"
+        app:backgroundTint="@null" />
+</LinearLayout>

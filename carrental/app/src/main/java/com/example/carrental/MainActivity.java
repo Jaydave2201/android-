@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // Initialize views
+
         button = findViewById(R.id.log);
         email = findViewById(R.id.email);
         pass = findViewById(R.id.pass);
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString(KEY_NAME, username);
                 editor.apply();
 
-                Intent intent = new Intent(MainActivity.this, homepage.class);
+                Intent intent = new Intent(MainActivity.this, date.class);
                 intent.putExtra("userName", username);
                 startActivity(intent);
                 Snackbar.make(view, "Login Successfully", Snackbar.LENGTH_LONG).show();

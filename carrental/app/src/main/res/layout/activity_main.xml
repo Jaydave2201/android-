@@ -32,11 +32,13 @@
         android:id="@+id/email"
         android:layout_width="317dp"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/mail"
+
         android:layout_below="@id/login"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="99dp"
 
-        android:hint="Enter Email ID"
+        android:hint="  Enter Email ID"
         android:inputType="textEmailAddress"
         android:textColor="@color/green"
         android:textColorHint="@color/green" />
@@ -53,6 +55,7 @@
             android:layout_width="317dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
+            android:drawableLeft="@drawable/pass"
 
             android:hint="Enter Password"
 

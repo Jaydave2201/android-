@@ -35,7 +35,7 @@
             <TextView
                 android:id="@+id/login"
                 style="@style/view_1"
-                android:text="Forgotpassword"
+                android:text="Forgot password"
                 android:layout_below="@id/loginimg"
                 android:textColor="#47BDB6"
                 android:textSize="30dp"
@@ -105,7 +105,7 @@
                     android:id="@+id/pass1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Renter New Password"
+                    android:hint="Reenter New Password"
                     android:background="@drawable/customboder"
                     android:textColorHint="@color/black"
                     android:drawableLeft="@drawable/pass"

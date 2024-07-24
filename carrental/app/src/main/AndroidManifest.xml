@@ -13,6 +13,42 @@
         android:theme="@style/Theme.Carrental"
         tools:targetApi="31">
         <activity
+            android:name=".hondacitycar"
+            android:exported="false" />
+        <activity
+            android:name=".fordvan"
+            android:exported="false" />
+        <activity
+            android:name=".dzirecar"
+            android:exported="false" />
+        <activity
+            android:name=".dzire"
+            android:exported="false" />
+        <activity
+            android:name=".tiagocar"
+            android:exported="false" />
+        <activity
+            android:name=".eecocar"
+            android:exported="false" />
+        <activity
+            android:name=".ertigacar"
+            android:exported="false" />
+        <activity
+            android:name=".altocar"
+            android:exported="false" />
+        <activity
+            android:name=".swiftcar"
+            android:exported="false" />
+        <activity
+            android:name=".balenocar"
+            android:exported="false" />
+        <activity
+            android:name=".nexaxl6"
+            android:exported="false" />
+        <activity
+            android:name=".date"
+            android:exported="false" />
+        <activity
             android:name=".forgotpass"
             android:exported="false" />
         <activity
