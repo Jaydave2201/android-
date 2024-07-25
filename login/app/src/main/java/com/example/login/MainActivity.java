@@ -33,34 +33,15 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sp;
 
 
-    private static final String Shared_preferences_name = "mysp";
-    private static final String Key_name = "username";
+
+
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        sp = getSharedPreferences(Shared_preferences_name, MODE_PRIVATE);
-        boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
-
-        if (isLoggedIn) {
-
-            Intent intent = new Intent(MainActivity.this, homepage.class);
-            startActivity(intent);
-            finish();
-            return;
-        }
-
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.email), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         sign = findViewById(R.id.sign);
         button = findViewById(R.id.log);
@@ -69,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
         hide = findViewById(R.id.hide);
         show = findViewById(R.id.show);
         forgot = findViewById(R.id.forgot);
-        sp = getSharedPreferences(Shared_preferences_name, MODE_PRIVATE);
+
         sqldb = openOrCreateDatabase("DIPLOMA2.db", MODE_PRIVATE, null);
+        sp = getSharedPreferences(Constant.PREF,MODE_PRIVATE);
 
         String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10), EMAIL VARCHAR(20), CONTACT BIGINT(10), PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
         sqldb.execSQL(tableQuery);
@@ -101,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClick(View view) {
-        // After clicking login, the data should be stored in SharedPreferences
-        SharedPreferences.Editor editor = sp.edit();
+
         String emailInput = email.getText().toString().trim();
         String passwordInput = pass.getText().toString().trim();
         String emailPattern = "^[\\w.-]+@[\\w.-]+\\.\\w+$";
@@ -120,15 +101,13 @@ public class MainActivity extends AppCompatActivity {
             Cursor cursor = sqldb.rawQuery(selectQuery, null);
 
             if (cursor.getCount() > 0) {
-                cursor.moveToFirst();
-                String username = cursor.getString(cursor.getColumnIndex("NAME"));
-
-                editor.putString(Key_name, username);
-                editor.putBoolean("isLoggedIn", true);  // Save login state
-                editor.apply();
-
+                while (cursor.moveToNext()){
+                    sp.edit().putString(Constant.NAME,cursor.getString(1)).commit();
+                    sp.edit().putString(Constant.EMAIL,cursor.getString(2)).commit();
+                    sp.edit().putString(Constant.CONTACT,cursor.getString(3)).commit();
+                    sp.edit().putString(Constant.PASSWORD,cursor.getString(4)).commit();
+                }
                 Intent intent = new Intent(MainActivity.this, homepage.class);
-                intent.putExtra("userName", username);
                 startActivity(intent);
                 Snackbar.make(view, "Login Successfully", Snackbar.LENGTH_LONG).show();
                 finish();

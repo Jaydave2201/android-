@@ -12,9 +12,7 @@
     tools:context=".balenocar">
 
     <ImageView
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_gravity="center"
+       style="@style/car_model"
         android:background="@drawable/baleno" />
 
     <TextView
@@ -27,7 +25,6 @@
         android:layout_marginBottom="180dp"
         android:gravity="center"
         android:text="Carname"
-
         android:textColor="@color/green"
         android:textSize="30sp"
         android:textStyle="bold" />

@@ -11,9 +11,7 @@
     android:padding="16dp"
     tools:context=".eecocar">
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="120dp"
-        android:layout_gravity="center"
+        style="@style/car_model"
         android:background="@drawable/eeco"/>
     <TextView
         android:id="@+id/welcome"
@@ -25,8 +23,6 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-
-        android:layout_marginTop="30dp"
         android:gravity="center"
         android:layout_marginBottom="180dp"/>
 

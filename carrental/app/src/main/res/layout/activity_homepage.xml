@@ -398,7 +398,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹1,250 Per Day"
+                            android:text="₹950 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 

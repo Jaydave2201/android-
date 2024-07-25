@@ -27,52 +27,87 @@
         android:layout_marginBottom="180dp"/>
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="From Date"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
         android:textStyle="bold"
-        android:textColor="@color/green"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="24dp"/>
-
-    <EditText
-        android:id="@+id/FromDate"
+        android:textColor="@color/green"/>
+    <FrameLayout
+        android:id="@+id/main_frame"
         android:layout_width="317dp"
+        android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
-        android:hint="Enter From Date"
-        android:drawableRight="@drawable/date"
-        android:textColor="@color/green"
-        android:textColorHint="@color/green"
-        android:inputType="date"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:padding="10dp" />
+        android:layout_below="@id/email"
+        android:layout_marginLeft="25dp">
+
+        <EditText
+            android:id="@+id/FromDate"
+            android:layout_width="317dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter To Date"
+
+            android:textColor="@color/green"
+            android:textColorHint="@color/green"
+            android:inputType="date"
+            android:layout_gravity="center"
+            android:layout_marginBottom="0dp"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/date"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end|center"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/date" />
+
+
+    </FrameLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="To Date"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
         android:textStyle="bold"
-        android:textColor="@color/green"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
-
-    <EditText
-        android:id="@+id/ToDate"
+        android:textColor="@color/green"/>
+    <FrameLayout
+        android:id="@+id/main_frame1"
         android:layout_width="317dp"
+        android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
-        android:hint="Enter To Date"
-        android:drawableRight="@drawable/date"
-        android:textColor="@color/green"
-        android:textColorHint="@color/green"
-        android:inputType="date"
-        android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
-        android:padding="10dp"
-      />
+        android:layout_below="@id/email"
+        android:layout_marginLeft="25dp">
+
+        <EditText
+            android:id="@+id/ToDate"
+            android:layout_width="317dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter To Date"
+            android:textColor="@color/green"
+            android:textColorHint="@color/green"
+            android:inputType="date"
+            android:layout_gravity="center"
+            android:layout_marginBottom="0dp"
+            android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/date1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end|center"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/date" />
+
+
+    </FrameLayout>
+
 
     <Button
         android:id="@+id/submit"

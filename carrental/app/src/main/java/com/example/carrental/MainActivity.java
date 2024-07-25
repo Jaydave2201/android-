@@ -16,9 +16,6 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.carrental.forgotpass;
 import com.example.carrental.homepage;
@@ -35,17 +32,12 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase sqldb;
     SharedPreferences sp;
 
-    // Shared Preference Name and key name
-    private static final String SHARED_PREFERENCES_NAME = "mysp";
-    private static final String KEY_NAME = "username";
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
 
         button = findViewById(R.id.log);
         email = findViewById(R.id.email);
@@ -55,15 +47,11 @@ public class MainActivity extends AppCompatActivity {
         forgot = findViewById(R.id.forgot);
         sign = findViewById(R.id.sign);
 
-        // Set up SharedPreferences
-        sp = getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
-
-        // Set up SQLite Database
+        sp = getSharedPreferences(Constant.NAME, MODE_PRIVATE);
         sqldb = openOrCreateDatabase("CARRENTAL.db", MODE_PRIVATE, null);
         String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10), EMAIL VARCHAR(20), CONTACT BIGINT(10), PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
         sqldb.execSQL(tableQuery);
 
-        // Toggle password visibility
         show.setOnClickListener(view -> {
             show.setVisibility(View.GONE);
             hide.setVisibility(View.VISIBLE);
@@ -78,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
             pass.setSelection(pass.length());
         });
 
-        // Set click listeners
         button.setOnClickListener(this::onLoginButtonClick);
         forgot.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, forgotpass.class);
@@ -90,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Handle login button click
     private void onLoginButtonClick(View view) {
         SharedPreferences.Editor editor = sp.edit();
         String emailInput = email.getText().toString().trim();
@@ -106,18 +92,17 @@ public class MainActivity extends AppCompatActivity {
         } else if (passwordInput.length() < 4) {
             pass.setError("Password must contain at least 6 characters");
         } else {
-            String selectQuery = "SELECT NAME FROM USERS WHERE EMAIL=? AND PASSWORD=?";
+            String selectQuery = "SELECT NAME, EMAIL, CONTACT, PASSWORD FROM USERS WHERE EMAIL=? AND PASSWORD=?";
             Cursor cursor = sqldb.rawQuery(selectQuery, new String[]{emailInput, passwordInput});
 
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
-                String username = cursor.getString(0);
-
-                editor.putString(KEY_NAME, username);
-                editor.apply();
+                editor.putString(Constant.NAME, cursor.getString(0)).apply();
+                editor.putString(Constant.EMAIL, cursor.getString(1)).apply();
+                editor.putString(Constant.CONTACT, cursor.getString(2)).apply();
+                editor.putString(Constant.PASSWORD, cursor.getString(3)).apply();
 
                 Intent intent = new Intent(MainActivity.this, date.class);
-                intent.putExtra("userName", username);
                 startActivity(intent);
                 Snackbar.make(view, "Login Successfully", Snackbar.LENGTH_LONG).show();
             } else {

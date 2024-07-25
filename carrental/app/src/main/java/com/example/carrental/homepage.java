@@ -3,35 +3,26 @@ package com.example.carrental;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import com.google.android.material.navigation.NavigationView;
 
 public class homepage extends AppCompatActivity {
     TextView welcomeText;
     SharedPreferences sp;
-    ImageView xl,bal,sw,hc,al,et,ec,ti,dz,van;
-
-
-
-
-    //Shared  Preference Name and key name create karvanu to use it for further same mainActivity jevu
-
-    private static final String Shared_preferences_name = "mysp";
-    private static final String Key_name = "username";
+    ImageView xl, bal, sw, hc, al, et, ec, ti, dz, van;
+    SQLiteDatabase sqldb;
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+
         welcomeText = findViewById(R.id.welcome);
         xl = findViewById(R.id.xl6);
         bal = findViewById(R.id.baleno);
@@ -43,14 +34,32 @@ public class homepage extends AppCompatActivity {
         ti = findViewById(R.id.tiago);
         dz = findViewById(R.id.dzire);
         van = findViewById(R.id.van);
-        sp = getSharedPreferences(Shared_preferences_name, MODE_PRIVATE);
 
-        // Retrieve the stored name from SharedPreferences
-        String userName = sp.getString(Key_name, "User");
+        sp = getSharedPreferences(Constant.NAME, MODE_PRIVATE);
 
-        // Set the retrieved name to the TextView
-        welcomeText.setText("Welcome " + userName);
+        // Set up SQLite Database
+        sqldb = openOrCreateDatabase("CARDETAILS.db", MODE_PRIVATE, null);
+        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10), SEAT INT(2), FUEL VARCHAR(10), GEAR VARCHAR(10), PRICE VARCHAR(10))";
+        sqldb.execSQL(tableQuery);
 
+        // Fetch the stored user name
+        welcomeText.setText("Welcome " + sp.getString(Constant.NAME, ""));
+
+        // Fetch data from the USERS table
+        String selectQuery = "SELECT NAME, SEAT, FUEL, GEAR, PRICE FROM USERS WHERE NAME=?";
+        Cursor cursor = sqldb.rawQuery(selectQuery, new String[]{sp.getString(cardetails.NAME, "")});
+
+        if (cursor.moveToFirst()) {
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString(cardetails.NAME, cursor.getString(0)).apply();
+            editor.putString(cardetails.SEAT, cursor.getString(1)).apply();
+            editor.putString(cardetails.FUEL, cursor.getString(2)).apply();
+            editor.putString(cardetails.GEAR, cursor.getString(3)).apply();
+            editor.putString(cardetails.PRICE, cursor.getString(4)).apply();
+        }
+        cursor.close(); // Always close the cursor
+
+        // Set up click listeners for each ImageView
         xl.setOnClickListener(view -> {
             Intent intent = new Intent(homepage.this, nexaxl6.class);
             startActivity(intent);
@@ -67,7 +76,7 @@ public class homepage extends AppCompatActivity {
             Intent intent = new Intent(homepage.this, hondacitycar.class);
             startActivity(intent);
         });
-      al.setOnClickListener(view -> {
+        al.setOnClickListener(view -> {
             Intent intent = new Intent(homepage.this, altocar.class);
             startActivity(intent);
         });
@@ -91,6 +100,5 @@ public class homepage extends AppCompatActivity {
             Intent intent = new Intent(homepage.this, fordvan.class);
             startActivity(intent);
         });
-
     }
 }

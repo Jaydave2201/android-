@@ -7,52 +7,53 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.app.DatePickerDialog;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class date extends AppCompatActivity {
-    private static final String TAG = "date";
     private EditText fromDateEditText, toDateEditText;
     private TextView welcomeText;
+    private ImageView fromDateImageView, toDateImageView;
     private Button submitButton;
     private SharedPreferences sp;
     private SimpleDateFormat dateFormat;
-    private static final String SHARED_PREFERENCES_NAME = "mysp";
-    private static final String KEY_NAME = "username";
+
+    private Calendar fromDateCalendar, toDateCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date);
 
-        // Initialize views
         welcomeText = findViewById(R.id.welcome);
         fromDateEditText = findViewById(R.id.FromDate);
         toDateEditText = findViewById(R.id.ToDate);
+        fromDateImageView = findViewById(R.id.date);
+        toDateImageView = findViewById(R.id.date1);
         submitButton = findViewById(R.id.submit);
 
-        // Initialize SharedPreferences and get username
-        sp = getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
-        String username = sp.getString(KEY_NAME, "User");
-        welcomeText.setText("Welcome " + username);
+        sp = getSharedPreferences(Constant.NAME, MODE_PRIVATE);
+        welcomeText.setText("Welcome " + sp.getString(Constant.NAME, ""));
 
-        // Initialize date format
         dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
-        // Set click listeners
-        fromDateEditText.setOnClickListener(v -> showDatePickerDialog(fromDateEditText));
-        toDateEditText.setOnClickListener(v -> showDatePickerDialog(toDateEditText));
+        fromDateCalendar = Calendar.getInstance();
+        toDateCalendar = Calendar.getInstance();
+
+        // Set click listeners for ImageView to show date picker dialogs
+        fromDateImageView.setOnClickListener(v -> showDatePickerDialog(fromDateEditText, fromDateCalendar));
+        toDateImageView.setOnClickListener(v -> showDatePickerDialog(toDateEditText, toDateCalendar));
         submitButton.setOnClickListener(this::onSubmitButtonClick);
     }
 
     private void onSubmitButtonClick(View view) {
-        // Validate date inputs
         if (validateDateInput()) {
-            // Navigate to homepage activity
             Intent intent = new Intent(date.this, homepage.class);
             startActivity(intent);
         }
@@ -77,6 +78,9 @@ public class date extends AppCompatActivity {
         } else if (!isValidDateFormat(toDate)) {
             toDateEditText.setError("Invalid date format. Use dd/MM/yyyy");
             isValid = false;
+        } else if (isDateBefore(fromDate, toDate)) {
+            toDateEditText.setError("To date cannot be earlier than from date");
+            isValid = false;
         }
 
         return isValid;
@@ -92,19 +96,25 @@ public class date extends AppCompatActivity {
         }
     }
 
-    private void showDatePickerDialog(final EditText editText) {
-        // Get the current date
-        final Calendar calendar = Calendar.getInstance();
+    private boolean isDateBefore(String fromDate, String toDate) {
+        try {
+            return dateFormat.parse(toDate).before(dateFormat.parse(fromDate));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return true;
+        }
+    }
+
+    private void showDatePickerDialog(final EditText editText, final Calendar calendar) {
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        // Create and show a DatePickerDialog
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
                 (view, selectedYear, selectedMonth, selectedDay) -> {
-                    // Format the date and set it on the EditText
-                    String selectedDate = String.format(Locale.getDefault(), "%02d/%02d/%04d", selectedDay, selectedMonth + 1, selectedYear);
+                    calendar.set(selectedYear, selectedMonth, selectedDay);
+                    String selectedDate = dateFormat.format(calendar.getTime());
                     editText.setText(selectedDate);
                 },
                 year, month, day);
