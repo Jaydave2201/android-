@@ -14,11 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -32,16 +28,11 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase sqldb;
     SharedPreferences sp;
 
-
-
-
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         sign = findViewById(R.id.sign);
         button = findViewById(R.id.log);
@@ -52,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         forgot = findViewById(R.id.forgot);
 
         sqldb = openOrCreateDatabase("DIPLOMA2.db", MODE_PRIVATE, null);
-        sp = getSharedPreferences(Constant.PREF,MODE_PRIVATE);
+        sp = getSharedPreferences(Constant.PREF, MODE_PRIVATE);
 
-        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10), EMAIL VARCHAR(20), CONTACT BIGINT(10), PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
+        String tableQuery = "CREATE TABLE IF NOT EXISTS USERS(NAME VARCHAR(50), EMAIL VARCHAR(50), CONTACT BIGINT, PASSWORD VARCHAR(100), GENDER VARCHAR(10))";
         sqldb.execSQL(tableQuery);
 
         show.setOnClickListener(view -> {
@@ -83,38 +74,58 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClick(View view) {
-
         String emailInput = email.getText().toString().trim();
         String passwordInput = pass.getText().toString().trim();
         String emailPattern = "^[\\w.-]+@[\\w.-]+\\.\\w+$";
 
-        if (emailInput.equals("")) {
+        if (emailInput.isEmpty()) {
             email.setError("Email ID required");
         } else if (!Pattern.matches(emailPattern, emailInput)) {
             email.setError("Invalid email format");
-        } else if (passwordInput.equals("")) {
+        } else if (passwordInput.isEmpty()) {
             pass.setError("Password required");
         } else if (passwordInput.length() < 6) {
             pass.setError("Password must contain at least 6 characters");
         } else {
-            String selectQuery = "SELECT NAME, EMAIL FROM USERS WHERE EMAIL='" + emailInput + "' AND PASSWORD='" + passwordInput + "'";
-            Cursor cursor = sqldb.rawQuery(selectQuery, null);
+            // Secure password check: use hashed password
+            String hashedPassword = hashPassword(passwordInput);
+
+            String selectQuery = "SELECT NAME, EMAIL, CONTACT FROM USERS WHERE EMAIL=? AND PASSWORD=?";
+            Cursor cursor = sqldb.rawQuery(selectQuery, new String[]{emailInput, hashedPassword});
 
             if (cursor.getCount() > 0) {
-                while (cursor.moveToNext()){
-                    sp.edit().putString(Constant.NAME,cursor.getString(1)).commit();
-                    sp.edit().putString(Constant.EMAIL,cursor.getString(2)).commit();
-                    sp.edit().putString(Constant.CONTACT,cursor.getString(3)).commit();
-                    sp.edit().putString(Constant.PASSWORD,cursor.getString(4)).commit();
-                }
+                cursor.moveToFirst();
+                sp.edit().putString(Constant.NAME, cursor.getString(0)).apply();
+                sp.edit().putString(Constant.EMAIL, cursor.getString(1)).apply();
+                sp.edit().putString(Constant.CONTACT, cursor.getString(2)).apply();
+
                 Intent intent = new Intent(MainActivity.this, homepage.class);
                 startActivity(intent);
-                Snackbar.make(view, "Login Successfully", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, "Login Successful", Snackbar.LENGTH_LONG).show();
                 finish();
             } else {
-                Toast.makeText(MainActivity.this, "Email ID and Password Don't Match", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Email ID and Password don't match", Toast.LENGTH_SHORT).show();
             }
             cursor.close();
+        }
+    }
+
+    private String hashPassword(String password) {
+        // Implement a secure hashing mechanism for passwords
+        // Example: Using SHA-256 hashing algorithm
+        // Note: You should also use salt to enhance security
+
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
+            byte[] array = md.digest(password.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : array) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+            // Handle the exception
+            return null;
         }
     }
 }

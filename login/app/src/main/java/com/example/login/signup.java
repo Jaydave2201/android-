@@ -1,6 +1,7 @@
 package com.example.login;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -37,11 +38,10 @@ public class signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         sqldb = openOrCreateDatabase("DIPLOMA2.db", MODE_PRIVATE, null);
-
-        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10),EMAIL VARCHAR(20),CONTACT BIGINT(10),PASSWORD VARCHAR(10), GENDER VARCHAR(10))";
+        String tableQuery = "CREATE TABLE IF NOT EXISTS USERS(NAME VARCHAR(50), EMAIL VARCHAR(50), CONTACT BIGINT, PASSWORD VARCHAR(100), GENDER VARCHAR(10))";
         sqldb.execSQL(tableQuery);
 
-        log = findViewById(R.id.log); // Initialize the log button
+        log = findViewById(R.id.log);
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         pass = findViewById(R.id.pass);
@@ -49,80 +49,94 @@ public class signup extends AppCompatActivity {
         hide = findViewById(R.id.hide);
         show = findViewById(R.id.show);
         chek = findViewById(R.id.main_chek);
-
         gender = findViewById(R.id.signup_gender);
 
-        gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                RadioButton rb = findViewById(i);
-                sGender = rb.getText().toString();
-                new Commanmethod(signup.this, sGender);
-            }
+        gender.setOnCheckedChangeListener((radioGroup, i) -> {
+            RadioButton rb = findViewById(i);
+            sGender = rb.getText().toString();
+            new Commanmethod(signup.this, sGender);
         });
 
-        show.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                show.setVisibility(View.GONE);
-                hide.setVisibility(View.VISIBLE);
-                pass.setTransformationMethod(null);
-                pass.setSelection(pass.length());
-            }
+        show.setOnClickListener(view -> {
+            show.setVisibility(View.GONE);
+            hide.setVisibility(View.VISIBLE);
+            pass.setTransformationMethod(null);
+            pass.setSelection(pass.length());
         });
 
-        hide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                show.setVisibility(View.VISIBLE);
-                hide.setVisibility(View.GONE);
-                pass.setTransformationMethod(new PasswordTransformationMethod());
-                pass.setSelection(pass.length());
-            }
+        hide.setOnClickListener(view -> {
+            show.setVisibility(View.VISIBLE);
+            hide.setVisibility(View.GONE);
+            pass.setTransformationMethod(new PasswordTransformationMethod());
+            pass.setSelection(pass.length());
         });
 
         log.setOnClickListener(this::onClick);
     }
 
     private void onClick(View view) {
-        String emailPattern = "^[a-zA-Z]+\\d+@\\w+\\.com$";
+        String emailPattern = "^[\\w.-]+@[\\w.-]+\\.\\w+$";
         String emailInput = email.getText().toString().trim();
         String passwordInput = pass.getText().toString().trim();
         String nameInput = name.getText().toString().trim();
         String contactInput = contact.getText().toString().trim();
 
-        if (nameInput.equals("")) {
+        if (nameInput.isEmpty()) {
             name.setError("Name required");
-        } else if (emailInput.equals("")) {
+        } else if (emailInput.isEmpty()) {
             email.setError("Email ID required");
         } else if (!Pattern.matches(emailPattern, emailInput)) {
             email.setError("Invalid email format");
-        } else if (contactInput.equals("")) {
+        } else if (contactInput.isEmpty()) {
             contact.setError("Contact number required");
-        } else if (passwordInput.equals("")) {
+        } else if (passwordInput.isEmpty()) {
             pass.setError("Password required");
         } else if (passwordInput.length() < 6) {
             pass.setError("Password must contain at least 6 characters");
         } else if (gender.getCheckedRadioButtonId() == -1) {
-            new Commanmethod(signup.this, "Please Select Gender");
+            new Commanmethod(signup.this, "Please select gender");
         } else if (!chek.isChecked()) {
-            new Commanmethod(signup.this, "Please Select Terms & Conditions");
+            new Commanmethod(signup.this, "Please accept terms & conditions");
         } else {
-            String selectQuery = "SELECT * FROM USERS WHERE EMAIL='" + email.getText().toString() + "' OR CONTACT='" + contact.getText().toString() + "'";
-            Cursor cursor = sqldb.rawQuery(selectQuery, null);
+            // Secure password storage: hash the password before storing
+            String hashedPassword = hashPassword(passwordInput);
+
+            String selectQuery = "SELECT * FROM USERS WHERE EMAIL = ? OR CONTACT = ?";
+            Cursor cursor = sqldb.rawQuery(selectQuery, new String[]{emailInput, contactInput});
+
             if (cursor.getCount() > 0) {
-
-
+                Snackbar.make(view, "User already exists", Snackbar.LENGTH_SHORT).show();
             } else {
-                String insertQuery = "INSERT INTO USERS VALUES('" + name.getText().toString() + "','" + email.getText().toString() + "','" + contact.getText().toString() + "','" + pass.getText().toString() + "','" + sGender + "')";
-                sqldb.execSQL(insertQuery);
+                ContentValues values = new ContentValues();
+                values.put("NAME", nameInput);
+                values.put("EMAIL", emailInput);
+                values.put("CONTACT", contactInput);
+                values.put("PASSWORD", hashedPassword);
+                values.put("GENDER", sGender);
+
+                sqldb.insert("USERS", null, values);
 
                 Intent intent = new Intent(signup.this, MainActivity.class);
                 startActivity(intent);
-                Snackbar.make(view, "Signup Successfully", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(view, "Signup Successful", Snackbar.LENGTH_SHORT).show();
             }
             cursor.close();
         }
+    }
 
+    private String hashPassword(String password) {
+
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
+            byte[] array = md.digest(password.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : array) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+            // Handle the exception
+            return null;
+        }
     }
 }
