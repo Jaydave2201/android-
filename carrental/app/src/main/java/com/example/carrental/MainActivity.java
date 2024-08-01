@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString(Constant.CONTACT, cursor.getString(2)).apply();
                 editor.putString(Constant.PASSWORD, cursor.getString(3)).apply();
 
-                Intent intent = new Intent(MainActivity.this, date.class);
+                Intent intent = new Intent(MainActivity.this, homepage.class);
                 startActivity(intent);
                 Snackbar.make(view, "Login Successfully", Snackbar.LENGTH_LONG).show();
             } else {

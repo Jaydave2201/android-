@@ -39,14 +39,14 @@ public class homepage extends AppCompatActivity {
 
         // Set up SQLite Database
         sqldb = openOrCreateDatabase("CARDETAILS.db", MODE_PRIVATE, null);
-        String tableQuery = "CREATE TABLE if not exists USERS(NAME VARCHAR(10), SEAT INT(2), FUEL VARCHAR(10), GEAR VARCHAR(10), PRICE VARCHAR(10))";
+        String tableQuery = "CREATE TABLE if not exists ADMIN(NAME VARCHAR(10), SEAT INT(2), FUEL VARCHAR(10), GEAR VARCHAR(10), PRICE VARCHAR(10))";
         sqldb.execSQL(tableQuery);
 
         // Fetch the stored user name
         welcomeText.setText("Welcome " + sp.getString(Constant.NAME, ""));
 
         // Fetch data from the USERS table
-        String selectQuery = "SELECT NAME, SEAT, FUEL, GEAR, PRICE FROM USERS WHERE NAME=?";
+        /*String selectQuery = "SELECT NAME, SEAT, FUEL, GEAR, PRICE FROM USERS WHERE NAME=?";
         Cursor cursor = sqldb.rawQuery(selectQuery, new String[]{sp.getString(cardetails.NAME, "")});
 
         if (cursor.moveToFirst()) {
@@ -57,7 +57,7 @@ public class homepage extends AppCompatActivity {
             editor.putString(cardetails.GEAR, cursor.getString(3)).apply();
             editor.putString(cardetails.PRICE, cursor.getString(4)).apply();
         }
-        cursor.close(); // Always close the cursor
+        cursor.close();*/ // Always close the cursor
 
         // Set up click listeners for each ImageView
         xl.setOnClickListener(view -> {

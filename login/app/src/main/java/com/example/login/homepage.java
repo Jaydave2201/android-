@@ -45,15 +45,15 @@ public class homepage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String email = sp.getString(Constant.EMAIL, "");
-                if (!email.isEmpty()) {
+
                     // Delete user by email
-                    sqldb.execSQL("DELETE FROM USERS WHERE EMAIL = ?", new Object[]{email});
+                    sqldb.execSQL("DELETE FROM USERS WHERE EMAIL = ?");
                     sp.edit().clear().commit();
                     Intent intent = new Intent(homepage.this, MainActivity.class);
                     startActivity(intent);
-                    finish();
+
                 }
-            }
+
         });
 
         welcomeText = findViewById(R.id.welcome);

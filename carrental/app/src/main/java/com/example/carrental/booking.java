@@ -1,14 +1,15 @@
 package com.example.carrental;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.app.DatePickerDialog;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,32 +17,35 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class date extends AppCompatActivity {
-    private EditText fromDateEditText, toDateEditText;
-    private TextView welcomeText;
+public class booking extends AppCompatActivity {
+    private EditText fromDateEditText, toDateEditText,customername;
     private ImageView fromDateImageView, toDateImageView;
     private Button submitButton;
-    private SharedPreferences sp;
+    private CheckBox chek;
     private SimpleDateFormat dateFormat;
 
     private Calendar fromDateCalendar, toDateCalendar;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date);
+        setContentView(R.layout.activity_booking);
 
-        welcomeText = findViewById(R.id.welcome);
-        fromDateEditText = findViewById(R.id.FromDate);
-        toDateEditText = findViewById(R.id.ToDate);
-        fromDateImageView = findViewById(R.id.date);
-        toDateImageView = findViewById(R.id.date1);
-        submitButton = findViewById(R.id.submit);
-
+        fromDateEditText = findViewById(R.id.fromDate);
+        toDateEditText = findViewById(R.id.toDate);
+        fromDateImageView = findViewById(R.id.fromDateImageView);
+        toDateImageView = findViewById(R.id.toDateImageView);
+        chek = findViewById(R.id.termsCheckBox);
+        submitButton = findViewById(R.id.submitButton);
+        customername = findViewById(R.id.customerName);
         sp = getSharedPreferences(Constant.NAME, MODE_PRIVATE);
-        welcomeText.setText("Welcome " + sp.getString(Constant.NAME, ""));
-
         dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
+        fromDateCalendar = Calendar.getInstance();
+        toDateCalendar = Calendar.getInstance();
+        customername.setText( sp.getString(Constant.NAME, ""));
+
 
         fromDateCalendar = Calendar.getInstance();
         toDateCalendar = Calendar.getInstance();
@@ -49,12 +53,19 @@ public class date extends AppCompatActivity {
         // Set click listeners for ImageView to show date picker dialogs
         fromDateImageView.setOnClickListener(v -> showDatePickerDialog(fromDateEditText, fromDateCalendar));
         toDateImageView.setOnClickListener(v -> showDatePickerDialog(toDateEditText, toDateCalendar));
+
         submitButton.setOnClickListener(this::onSubmitButtonClick);
     }
 
     private void onSubmitButtonClick(View view) {
+        if (!chek.isChecked()) {
+            Toast.makeText(this, "Please accept terms & conditions", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (validateDateInput()) {
-            Intent intent = new Intent(date.this, homepage.class);
+            // Save data or proceed with booking
+            Intent intent = new Intent(booking.this, succesful.class);
             startActivity(intent);
         }
     }

@@ -83,7 +83,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹1,500 per Day"
+                            android:text="₹5,199 per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -132,7 +132,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹1,200 Per Day"
+                            android:text="₹6,499 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -188,7 +188,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹1,100 Per Day"
+                            android:text="₹3,449 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -237,7 +237,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹1,250 Per Day"
+                            android:text="₹4,519 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -293,7 +293,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹800 Per Day"
+                            android:text="₹2,999 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -342,7 +342,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹1,450 Per Day"
+                            android:text="₹1,449 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -398,7 +398,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹950 Per Day"
+                            android:text="₹2,899 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -447,7 +447,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹1,540 Per Day"
+                            android:text="₹4,899 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -504,7 +504,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹1,200 Per Day"
+                            android:text="₹4,999 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -555,7 +555,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="₹5,780 Per Day"
+                            android:text="₹9,999 Per Day"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 

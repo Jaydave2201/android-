@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/appbackground"
+    android:padding="16dp"
+    tools:context=".succesful">
+
+
+    <TextView
+        android:id="@+id/welcome"
+        style="@style/view_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Booking Succesfully Done"
+        android:textColor="@color/green"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginBottom="45dp"/>
+
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/complete"
+    android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#22FFFFFF"
+            android:orientation="horizontal"
+            android:padding="16dp">
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Congratulations! Your booking has been successfully completed. Please note that if the car is damaged during your rental period, you will be responsible for covering the repair costs."
+        android:textColor="@color/green"
+        android:textSize="20dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Thank you for choosing us. We look forward to serving you!"
+        android:textColor="@color/green"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="25dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custombutton"
+        android:onClick="onLoginButtonClick"
+        android:text="logout"
+        android:textColor="@color/white"
+        app:backgroundTint="@null" />
+</LinearLayout>

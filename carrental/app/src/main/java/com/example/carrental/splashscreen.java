@@ -38,7 +38,7 @@ public class splashscreen extends AppCompatActivity {
                     startActivity(intent);
                     Toast.makeText(splashscreen.this, "Please Login", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent= new Intent(splashscreen.this, date.class);
+                    Intent intent= new Intent(splashscreen.this, homepage.class);
                     startActivity(intent);
                 }
             }
