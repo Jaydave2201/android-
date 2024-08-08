@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "160908740174",
+    "firebase_url": "https://booking-ed2a4-default-rtdb.firebaseio.com",
+    "project_id": "booking-ed2a4",
+    "storage_bucket": "booking-ed2a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160908740174:android:1f2a4cb8a2b7402e4e651f",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtELeV6-LF3rTGhxjXyVud-ZbAWKy7tmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
