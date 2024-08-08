@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "579698398878",
+    "project_id": "gosmart-ff6af",
+    "storage_bucket": "gosmart-ff6af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579698398878:android:4660fa0d43c90caf894d8f",
+        "android_client_info": {
+          "package_name": "com.gosmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579698398878-dtvbfgvgq118a95pin44v99cuf15t0u3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gosmart",
+            "certificate_hash": "32613b6b04aaa9e12d6b708659f58e3988a4eb5d"
+          }
+        },
+        {
+          "client_id": "579698398878-no56forg3jnus4rpi5va01l36dahgnsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpRXT_6hQzc1z3Gr9kLnPcjfnDCaty-F4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579698398878-no56forg3jnus4rpi5va01l36dahgnsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

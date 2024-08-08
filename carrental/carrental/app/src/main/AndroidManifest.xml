@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/car_foreground"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/car_foreground"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Carrental"
+        tools:targetApi="31">
+        <activity
+            android:name=".SubCategory_DesignActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SubCategory_MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Category_DesignActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Category_MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".navigation"
+            android:exported="false"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/Theme.Carrental.NoActionBar" />
+        <activity
+            android:name=".car"
+            android:exported="false" />
+        <activity
+            android:name=".userList"
+            android:exported="false" />
+        <activity
+            android:name=".succesful"
+            android:exported="false" />
+        <activity
+            android:name=".booking"
+            android:exported="true" />
+        <activity
+            android:name=".splashscreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".hondacitycar"
+            android:exported="false" />
+        <activity
+            android:name=".fordvan"
+            android:exported="false" />
+        <activity
+            android:name=".dzirecar"
+            android:exported="false" />
+        <activity
+            android:name=".tiagocar"
+            android:exported="false" />
+        <activity
+            android:name=".eecocar"
+            android:exported="false" />
+        <activity
+            android:name=".ertigacar"
+            android:exported="false" />
+        <activity
+            android:name=".altocar"
+            android:exported="false" />
+        <activity
+            android:name=".swiftcar"
+            android:exported="false" />
+        <activity
+            android:name=".balenocar"
+            android:exported="false" />
+        <activity
+            android:name=".nexaxl6"
+            android:exported="false" />
+        <activity
+            android:name=".forgotpass"
+            android:exported="false" />
+        <activity
+            android:name=".homepage"
+            android:exported="true" />
+        <activity
+            android:name=".signup"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

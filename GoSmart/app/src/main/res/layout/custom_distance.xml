@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:id="@+id/rlmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/custom_total_distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_border"
+            android:hint="Total Distance (IN KM)"
+            android:inputType="number"
+            android:maxLength="4"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/custom_distance_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_border_red"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="Payment Request"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:padding="10dp"
+    android:layout_height="wrap_content"
+    android:background="#00000000">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/rlmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true">
+
+        <EditText
+            android:id="@+id/custom_start_journey_no"
+            android:maxLength="1"
+            android:inputType="number"
+            android:hint="No. Of Person Allowed"
+            android:padding="5dp"
+            android:background="@drawable/custom_border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/custom_start_journey_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/custom_border_red"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="Submit"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</RelativeLayout>
